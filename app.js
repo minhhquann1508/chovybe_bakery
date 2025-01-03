@@ -5,6 +5,7 @@ const cors = require('cors');
 const db = require('./configs/connectDb');
 const categoryRoute = require('./routes/categoryRoute');
 const authRoute = require('./routes/authRoute');
+const productRoute = require('./routes/productRoute');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -15,6 +16,7 @@ app.use(cors());
 
 app.use('/api/auth', authRoute);
 app.use('/api/categories', categoryRoute);
+app.use('/api/products', productRoute);
 
 db.connect((err) => {
     if (err) {
